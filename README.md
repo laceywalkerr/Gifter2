@@ -118,7 +118,7 @@ To explore EF Core, we'll build a new app, Gifter. Gifter is a social app for sh
 
 Here's the initial Gifter ERD...
 
-![Gifter ERD](./images/Gifter_ERD.png)
+![Gifter ERD](https://raw.githubusercontent.com/nashville-software-school/bangazon-inc/cohort-43/book-3-web-api/chapters/images/Gifter_ERD.png)
 
 ...and the [SQL Script](./sql/Gifter.sql).
 
