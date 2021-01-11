@@ -112,7 +112,7 @@ To make project:
 Open Visual Studio Code
 Select "Create New Project"
 Select "ASP.NET Core WEb Application"
-Select "Empty"
+Select "API"
 
 To explore EF Core, we'll build a new app, Gifter. Gifter is a social app for sharing animated GIFs with others. For the time being we'll focus on using building a Web API using Entity Framework Core. In future chapters we'll be creating a React application that will interact with the API.
 
