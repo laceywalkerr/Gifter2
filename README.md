@@ -120,7 +120,7 @@ Here's the initial Gifter ERD...
 
 ![Gifter ERD](https://raw.githubusercontent.com/nashville-software-school/bangazon-inc/cohort-43/book-3-web-api/chapters/images/Gifter_ERD.png)
 
-...and the [SQL Script](./sql/Gifter.sql).
+...and the [SQL Script](https://github.com/nashville-software-school/bangazon-inc/blob/cohort-43/book-3-web-api/chapters/sql/Gifter.sql).
 
 ### Installing Entity Framework Core Nuget Packages
 
