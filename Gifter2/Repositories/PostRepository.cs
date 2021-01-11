@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Components;
+﻿using Gifter2.Data;
+using Gifter2.Models;
+using Microsoft.AspNetCore.Components;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -8,34 +10,26 @@ using RouteAttribute = Microsoft.AspNetCore.Components.RouteAttribute;
 
 namespace Gifter2.Repositories
 {
-    public class PostRepository
+    public class PostRepository : IPostRepository
     {
-        [Route("api/[controller]")]
-        [ApiController]
-        public class PostController : ControllerBase
+
+        private readonly ApplicationDbContext _context;
+
+        public PostRepository(ApplicationDbContext context)
         {
-            private readonly IPostRepository _postRepository;
-            public PostController(IPostRepository postRepository)
-            {
-                _postRepository = postRepository;
-            }
-
-            [HttpGet]
-            public IActionResult Get()
-            {
-                return Ok(_postRepository.GetAll());
-            }
-
-            [HttpGet("{id}")]
-            public IActionResult Get(int id)
-            {
-                var post = _postRepository.GetById(id);
-                if (post == null)
-                {
-                    return NotFound();
-                }
-                return Ok(post);
-            }
+            _context = context;
         }
+
+        public List<Post> GetAll()
+        {
+            return _context.Post.ToList();
+        }
+
+        public Post GetById(int id)
+        {
+            return _context.Post.FirstOrDefault(p => p.Id == id);
+        }
+
+
     }
 }
