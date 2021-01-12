@@ -13,6 +13,7 @@ using Gifter2.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.OpenApi.Models;
 using Gifter2.Repositories;
+using Newtonsoft.Json;
 
 namespace Gifter2
 {
@@ -35,7 +36,10 @@ namespace Gifter2
 
             services.AddTransient<IPostRepository, PostRepository>();
 
-            services.AddControllers();
+            services.AddControllers()
+            .AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+        );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
