@@ -16,6 +16,7 @@ namespace Gifter2.Repositories
 
         private readonly ApplicationDbContext _context;
 
+        // below is the dependancy injetion 
         public PostRepository(ApplicationDbContext context)
         {
             _context = context;
