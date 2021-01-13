@@ -8,7 +8,7 @@ namespace Gifter2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserProfileController : Controller
+    public class CommentController : Controller
     {
         public IActionResult Index()
         {
