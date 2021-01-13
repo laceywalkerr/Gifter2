@@ -51,12 +51,13 @@ namespace Gifter2.Repositories
             _context.SaveChanges();
         }
 
-        public List<Post> GetUserByProfileId(int id)
+        public List<Post> GetByUserProfileId(int id)
         {
             return _context.Post.Include(p => p.UserProfile)
                 .Where(p => p.UserProfileId == id)
                 .OrderBy(p => p.Title)
                 .ToList();
         }
+
     }
 }
