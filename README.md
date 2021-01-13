@@ -108,11 +108,11 @@ public void Add(BeanVariety variety)
 
 ### Gifter
 
-To make project:
-Open Visual Studio Code
-Select "Create New Project"
-Select "ASP.NET Core WEb Application"
-Select "API"
+#### To make project:
+* Open Visual Studio Code
+* Select "Create New Project"
+* Select "ASP.NET Core WEb Application"
+* Select "API"
 
 To explore EF Core, we'll build a new app, Gifter. Gifter is a social app for sharing animated GIFs with others. For the time being we'll focus on using building a Web API using Entity Framework Core. In future chapters we'll be creating a React application that will interact with the API.
 
@@ -334,6 +334,11 @@ namespace Gifter.Repositories
 ### `IPostRepository`
 
 1. Use the `Extract Interface...` feature of Visual Studio to create the `IPostRepository` interface.
+* Go to PostRepository.cs
+* Left Click public class /PostRepository
+* Select "Quick Actions and Refactorings"
+* Select "Extract Interface"
+
 2. Update the `ConfigureServices` method in the `Startup` class to register your new repository with ASP<span>.</span>NET.
 
 ```cs
