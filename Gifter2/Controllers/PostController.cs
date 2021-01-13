@@ -33,11 +33,11 @@ namespace Gifter2.Controllers
             return Ok(post);
         }
 
-        [HttpGet("getbyuser/{id}")]
-        public IActionResult GetByUser(int id)
-        {
-            return Ok(_postRepository.GetByUserProfileId(id));
-        }
+        //[HttpGet("getbyuser/{id}")]
+        //public IActionResult GetByUser(int id)
+        //{
+        //    return Ok(_postRepository.GetByUserProfileId(id));
+        //}
 
         [HttpPost]
         public IActionResult Post(Post post)

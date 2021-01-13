@@ -24,16 +24,6 @@ namespace Gifter2.Repositories
 
         public List<Post> GetAll()
         {
-            return _context.Post.ToList();
-        }
-
-        public Post GetById(int id)
-        {
-            return _context.Post.FirstOrDefault(p => p.Id == id);
-        }
-
-        public List<Post> GetAll()
-        {
             return _context.Post.Include(p => p.UserProfile).ToList();
         }
 
@@ -69,5 +59,9 @@ namespace Gifter2.Repositories
             _context.SaveChanges();
         }
 
+        //public List<Post> GetUserByProfileId(int id)
+        //{
+        //    throw new NotImplementedException();
+        //}
     }
 }
