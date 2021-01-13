@@ -11,6 +11,6 @@ namespace Gifter2.Repositories
         void Add(Post post);
         void Update(Post post);
         void Delete(int id);
-        List<Post> GetUserByProfileId(int id);
+        List<Post> GetByUserProfileId(int id);
     }
 }
