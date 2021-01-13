@@ -1,4 +1,6 @@
 ﻿using Gifter2.Data;
+using Gifter2.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Gifter2.Repositories
 {
-    public class UserProfileRepository
+    public class UserProfileRepository : IUserProfileRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -16,9 +18,35 @@ namespace Gifter2.Repositories
             _context = context;
         }
 
-        public List<UserProfileRepository> GetAll()
+        public List<UserProfile> GetAll()
         {
             return _context.UserProfile.ToList();
         }
+
+        public void Add(UserProfile user)
+        {
+            _context.Add(user);
+            _context.SaveChanges();
+        }
+
+        public void Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        public UserProfile GetById(int id)
+        {
+            return _context.UserProfile.FirstOrDefault(p => p.Id == id);
+        }
+
+        public void Update(UserProfile user)
+        {
+            _context.Entry(user).State = EntityState.Modified;
+            _context.SaveChanges();
+        }
+
+
     }
 }
