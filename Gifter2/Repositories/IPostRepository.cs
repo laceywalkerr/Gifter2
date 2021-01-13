@@ -12,7 +12,5 @@ namespace Gifter2.Repositories
         void Update(Post post);
         void Delete(int id);
         List<Post> GetUserByProfileId(int id);
-        //List<Post> Search(string searchTerm, bool recent);
-        //object GetByUserProfileId(int id);
     }
 }

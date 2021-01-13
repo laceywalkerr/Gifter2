@@ -32,14 +32,6 @@ namespace Gifter2.Repositories
             return _context.Post.Include(p => p.UserProfile).FirstOrDefault(p => p.Id == id);
         }
 
-        public List<Post> GetByUserProfileId(int id)
-        {
-            return _context.Post.Include(p => p.UserProfile)
-                            .Where(p => p.UserProfileId == id)
-                            .OrderBy(p => p.Title)
-                            .ToList();
-        }
-
         public void Add(Post post)
         {
             _context.Add(post);
@@ -59,9 +51,12 @@ namespace Gifter2.Repositories
             _context.SaveChanges();
         }
 
-        //public List<Post> GetUserByProfileId(int id)
-        //{
-        //    throw new NotImplementedException();
-        //}
+        public List<Post> GetUserByProfileId(int id)
+        {
+            return _context.Post.Include(p => p.UserProfile)
+                .Where(p => p.UserProfileId == id)
+                .OrderBy(p => p.Title)
+                .ToList();
+        }
     }
 }
