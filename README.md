@@ -335,7 +335,7 @@ namespace Gifter.Repositories
 
 1. Use the `Extract Interface...` feature of Visual Studio to create the `IPostRepository` interface.
 * Go to PostRepository.cs
-* Left Click <i>public</i> class <b>PostRepository<b>
+* Left Click <i>public</i> class <b>PostRepository</b>
 * Select "Quick Actions and Refactorings"
 * Select "Extract Interface"
 
