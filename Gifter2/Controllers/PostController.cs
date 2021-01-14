@@ -27,7 +27,7 @@ namespace Gifter2.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             var post = _postRepository.GetById(id);
             if (post == null)
@@ -65,6 +65,13 @@ namespace Gifter2.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            // Optional:
+            //var existingPost = _postRepository.GetById(id);
+            //if (existingPost == null)
+            //{
+            //    return NotFound();
+            //}
+
             _postRepository.Delete(id);
             return NoContent();
         }

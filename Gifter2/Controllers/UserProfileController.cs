@@ -1,4 +1,5 @@
-﻿using Gifter2.Repositories;
+﻿using Gifter2.Models;
+using Gifter2.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,48 +12,67 @@ namespace Gifter2.Controllers
     [ApiController]
     public class UserProfileController : ControllerBase
     {
-        private IUserProfileRepository _repo;
+        private IUserProfileRepository _userProfileRepository;
 
-        public UserProfileController(IUserProfileRepository repo)
+        public UserProfileController(IUserProfileRepository userProfileRepository)
         {
-            _repo = repo;
+            _userProfileRepository = userProfileRepository;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var allUsers = _repo.GetAll();
+            var allUsers = _userProfileRepository.GetAll();
             return Ok(allUsers);
         }
 
-        [HttpGet("{id")]
+        [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
-            var user = _repo.GetById(id);
+            var user = _userProfileRepository.GetById(id);
 
             if (user == null)
 
             {
                 return NotFound();
             }
+            return Ok(user);
         }
 
-        [HttpPut("{id")]
-        public IActionResult Update(int id, UserProfileController user)
+        [HttpPost]
+        public IActionResult GetByUser(UserProfile user)
+        {
+            user.DateCreated = DateTime.Now;
+
+            _userProfileRepository.Add(user);
+            return Ok(user);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, UserProfile user)
         {
             if (id != user.Id)
             {
                 return BadRequest();
             }
 
-            var existingUser = _repo.GetById(id);
+            var existingUser = _userProfileRepository.GetById(id);
 
             if (existingUser == null)
             {
                 return NotFound();
             }
 
-            _repo.Update(user);
+            _userProfileRepository.Update(user);
+            return NoContent();
+        }
+
+
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            _userProfileRepository.Delete(id);
             return NoContent();
         }
 
