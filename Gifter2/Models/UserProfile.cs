@@ -20,6 +20,5 @@ namespace Gifter2.Models
 
         [Required]
         public DateTime DateCreated { get; set; }
-
     }
 }

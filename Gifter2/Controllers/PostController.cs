@@ -10,6 +10,8 @@ namespace Gifter2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+
+    // Dependancy injection
     public class PostController : ControllerBase
     {
         private readonly IPostRepository _postRepository;
