@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace Gifter2.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
+
+    // Dependancy injection
     public class PostController : ControllerBase
     {
         private readonly IPostRepository _postRepository;
@@ -23,7 +27,7 @@ namespace Gifter2.Controllers
         }
 
         [HttpGet("{id}")]
-        public IActionResult Get(int id)
+        public IActionResult GetById(int id)
         {
             var post = _postRepository.GetById(id);
             if (post == null)
@@ -40,14 +44,14 @@ namespace Gifter2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Post post)
+        public IActionResult Add(Post post)
         {
             _postRepository.Add(post);
             return CreatedAtAction("Get", new { id = post.Id }, post);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Post post)
+        public IActionResult Update(int id, Post post)
         {
             if (id != post.Id)
             {
@@ -61,6 +65,13 @@ namespace Gifter2.Controllers
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
+            // Optional:
+            //var existingPost = _postRepository.GetById(id);
+            //if (existingPost == null)
+            //{
+            //    return NotFound();
+            //}
+
             _postRepository.Delete(id);
             return NoContent();
         }
