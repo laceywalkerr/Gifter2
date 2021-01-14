@@ -44,14 +44,14 @@ namespace Gifter2.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(Post post)
+        public IActionResult Add(Post post)
         {
             _postRepository.Add(post);
             return CreatedAtAction("Get", new { id = post.Id }, post);
         }
 
         [HttpPut("{id}")]
-        public IActionResult Put(int id, Post post)
+        public IActionResult Update(int id, Post post)
         {
             if (id != post.Id)
             {

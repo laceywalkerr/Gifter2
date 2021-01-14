@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Gifter2.Repositories;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,11 +9,54 @@ namespace Gifter2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UserProfileController : Controller
+    public class UserProfileController : ControllerBase
     {
-        public IActionResult Index()
+        private IUserProfileRepository _repo;
+
+        public UserProfileController(IUserProfileRepository repo)
         {
-            return View();
+            _repo = repo;
         }
+
+        [HttpGet]
+        public IActionResult Get()
+        {
+            var allUsers = _repo.GetAll();
+            return Ok(allUsers);
+        }
+
+        [HttpGet("{id")]
+        public IActionResult GetById(int id)
+        {
+            var user = _repo.GetById(id);
+
+            if (user == null)
+
+            {
+                return NotFound();
+            }
+        }
+
+        [HttpPut("{id")]
+        public IActionResult Update(int id, UserProfileController user)
+        {
+            if (id != user.Id)
+            {
+                return BadRequest();
+            }
+
+            var existingUser = _repo.GetById(id);
+
+            if (existingUser == null)
+            {
+                return NotFound();
+            }
+
+            _repo.Update(user);
+            return NoContent();
+        }
+
+
+
     }
 }

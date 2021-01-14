@@ -24,9 +24,13 @@ namespace Gifter2.Repositories
 
         public List<Post> GetAll()
         {
+            // this is the table we're going to look at
             return _context.Post.Include(p => p.UserProfile)
+                // we're going to limit it to three
                 .Take(3)
+                // we're going to order it by date created
                 .OrderBy(p => p.DateCreated)
+                // this tells the program to fire it off and then list the items
                 .ToList();
         }
 
@@ -40,7 +44,9 @@ namespace Gifter2.Repositories
 
         public void Add(Post post)
         {
+            // .Add stages 
             _context.Add(post);
+            // .SaveChanges executes
             _context.SaveChanges();
         }
 
@@ -54,6 +60,10 @@ namespace Gifter2.Repositories
         {
             var post = GetById(id);
             _context.Post.Remove(post);
+
+            //var userToDelete = _context.UserProfile.Where(up => up.Id == post.UserProfileId);
+            //_context.UserProfile.RemoveRange(userToDelete);
+
             _context.SaveChanges();
         }
 
