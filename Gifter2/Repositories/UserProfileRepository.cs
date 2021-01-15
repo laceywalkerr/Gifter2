@@ -31,7 +31,13 @@ namespace Gifter2.Repositories
 
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            var userPosts = _context.Post.Include(p = p.Comments).Where(p = p.UserProfileId == id);
+            _context.Post.RemoveRange(userPosts);
+
+            var user = GetById(id);
+            _context.UserProfile.Remove(user);
+
+            _context.SaveChanges();
         }
 
 
