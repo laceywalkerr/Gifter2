@@ -1,4 +1,5 @@
 ﻿using Gifter2.Models;
+using Gifter2.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -27,7 +28,7 @@ namespace Gifter2.Controllers
         public IActionResult Add(Comment comment)
         {
             _commentRepository.Add(comment);
-            return CreatedAtAction("Get", new {  id = comment.Id})
+            return CreatedAtAction("Get", new { id = comment.Id });
         }
 
         [HttpPut("id")]
