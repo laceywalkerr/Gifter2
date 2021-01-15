@@ -11,5 +11,6 @@ namespace Gifter2.Repositories
         Post GetById(int id);
         List<Post> GetByUserProfileId(int id);
         void Update(Post post);
+        List<Post> Search(string criterion, bool sortDescending);
     }
 }

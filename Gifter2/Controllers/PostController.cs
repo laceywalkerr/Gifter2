@@ -76,5 +76,20 @@ namespace Gifter2.Controllers
             return NoContent();
         }
 
+        // The method below will respond to a request that looks like this
+        // https://localhost:5001/api/post/search?q=p&sortDesc=false
+
+        //[HttpGet("search")]
+        //public IActionResult Search(string q, bool sortDesc)
+        //{
+        //    return Ok(_postRepository.Search(q, sortDesc));
+        //}
+
+        [HttpGet("hottest")]
+        public IActionResult Search(string q, int DateTime)
+        {
+            return Ok(_postRepository.Search(q, DateTime));
+        }
+
     }
 }
