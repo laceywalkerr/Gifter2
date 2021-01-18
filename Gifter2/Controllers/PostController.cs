@@ -85,11 +85,17 @@ namespace Gifter2.Controllers
         //    return Ok(_postRepository.Search(q, sortDesc));
         //}
 
-        [HttpGet("hottest")]
-        public IActionResult Search(string q, int DateTime)
-        {
-            return Ok(_postRepository.Search(q, DateTime));
-        }
+        //[HttpGet("hottest")]
+        //public IActionResult Search(string q, int DateTime)
+        //{
+        //    return Ok(_postRepository.Search(q, DateTime));
+        //}
 
+        [HttpGet("search")]
+        public IActionResult Search(string criterion)
+        {
+            var posts = _postRepository.GetAll();
+            return Ok(posts);
+        }
     }
 }
