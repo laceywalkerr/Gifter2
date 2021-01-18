@@ -37,7 +37,7 @@ namespace Gifter2
 
             services.AddTransient<IPostRepository, PostRepository>();
             services.AddTransient<IUserProfileRepository, UserProfileRepository>();
-            //services.AddTransient<ICommentRepository, CommentRepository>();
+            services.AddTransient<ICommentRepository, CommentRepository>();
 
             services.AddControllers()
             .AddNewtonsoftJson(options =>
