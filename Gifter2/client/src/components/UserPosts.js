@@ -1,22 +1,24 @@
-import React from "react";
-import { Switch, Route } from "react-router-dom";
-import PostList from "./PostList";
-import PostForm from "./PostForm";
+import React, { useEffect } from "react";
+import { useParams } from 'react-router-dom';
 
-const ApplicationViews = () => {
+
+const UserPosts = () => {
+    const { userId } = useParams();
+
+    useEffect(() => {
+        fetch(`/api/post/getbyuser/${userId}`)
+            .then(res => res.json())
+            .then(posts => console.log(posts));
+    }, []);
+
     return (
-        <Switch>
-            <Route path="/" exact>
-                <PostList />
-            </Route>
-
-            <Route path="/posts/add">
-                <PostForm />
-            </Route>
-
-            <Route path="/posts/:id">{/* TODO: Post Details Component */}</Route>
-        </Switch>
+        <div>
+            <h1>User Posts</h1>
+            <h4>{userId}</h4>
+        </div>
     );
 };
 
-export default ApplicationViews;
+
+
+export default UserPosts;
