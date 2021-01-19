@@ -158,3 +158,6 @@ C:\Users\Lacey\workspace\gifter2\Gifter2\obj\Debug\net5.0\Gifter2.dll
 C:\Users\Lacey\workspace\gifter2\Gifter2\obj\Debug\net5.0\ref\Gifter2.dll
 C:\Users\Lacey\workspace\gifter2\Gifter2\obj\Debug\net5.0\Gifter2.pdb
 C:\Users\Lacey\workspace\gifter2\Gifter2\obj\Debug\net5.0\Gifter2.genruntimeconfig.cache
+C:\Users\Lacey\workspace\gifter2\Gifter2\bin\Debug\net5.0\client\package-lock.json
+C:\Users\Lacey\workspace\gifter2\Gifter2\bin\Debug\net5.0\client\package.json
+C:\Users\Lacey\workspace\gifter2\Gifter2\bin\Debug\net5.0\client\public\manifest.json
