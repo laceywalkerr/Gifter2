@@ -6,7 +6,7 @@ const PostSearch = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        fetch(`/api/posts/search?criterion=${searchTerm}`)
+        fetch(`/api/post/search?criterion=${searchTerm}`)
             .then(res => res.json())
             .then(searchResults => console.log(searchResults));
     }
