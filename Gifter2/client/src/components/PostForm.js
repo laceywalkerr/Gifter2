@@ -9,6 +9,7 @@ const PostForm = () => {
             .then(data => setPosts(data));
     }, []);
 
+
     return (
         <div className="container">
             <div className="row justify-content-center">
