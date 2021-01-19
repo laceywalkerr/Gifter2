@@ -76,26 +76,35 @@ namespace Gifter2.Controllers
             return NoContent();
         }
 
-        // The method below will respond to a request that looks like this
-        // https://localhost:5001/api/post/search?q=p&sortDesc=false
 
+
+        // The method below will respond to a request that looks like this
+        // https://localhost:5001/api/post/hottest?since=<SOME_DATE>
+        [HttpGet("hottest")]
+        public IActionResult Hottest(DateTime since)
+        {
+            return Ok(_postRepository.Hottest(since));
+        }
+
+
+        // The method below will respond to a request that looks like this (adams lecture)
+        // https://localhost:5001/api/post/search?criterion=bad&recent=true
+        //[HttpGet("search")]
+        //public IActionResult Search(string criterion, bool recent)
+        //{
+        //    var posts = _postRepository.Search(criterion, recent);
+        //    return Ok(posts);
+        //}
+
+
+        // The method below will respond to a request that looks like this (chapter)
+        // https://localhost:5001/api/post/search?q=p&sortDesc=false
         //[HttpGet("search")]
         //public IActionResult Search(string q, bool sortDesc)
         //{
         //    return Ok(_postRepository.Search(q, sortDesc));
         //}
 
-        //[HttpGet("hottest")]
-        //public IActionResult Search(string q, int DateTime)
-        //{
-        //    return Ok(_postRepository.Search(q, DateTime));
-        //}
 
-        [HttpGet("search")]
-        public IActionResult Search(string criterion)
-        {
-            var posts = _postRepository.GetAll();
-            return Ok(posts);
-        }
     }
 }
