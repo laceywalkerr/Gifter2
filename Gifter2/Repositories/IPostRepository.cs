@@ -13,6 +13,6 @@ namespace Gifter2.Repositories
         List<Post> GetByUserProfileId(int id);
         void Update(Post post);
         List<Post> Hottest(DateTime startDate);
-        //List<Post> Search(string searchTerm, bool recent);
+        List<Post> Search(string searchTerm, bool recent);
     }
 }

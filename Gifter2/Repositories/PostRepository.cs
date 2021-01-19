@@ -85,21 +85,21 @@ namespace Gifter2.Repositories
             return query.ToList();
         }
 
-        //public List<Post> Search(string searchTerm, bool recent)
-        //{
-        //    var query = _context.Post
-        //        .Where(p => p.Title.Contains(searchTerm));
-        //        //.ToList();
+        public List<Post> Search(string searchTerm, bool recent)
+        {
+            var query = _context.Post
+                .Where(p => p.Title.Contains(searchTerm));
+            //.ToList();
 
-        //    if (recent == true)
-        //    {
-        //        return query.OrderByDescending(p => p.DateCreated).ToList();
-        //    }
-        //    else
-        //    {
-        //        return query.OrderBy(p => p.DateCreated).ToList();
-        //    }
-        //}
+            if (recent == true)
+            {
+                return query.OrderByDescending(p => p.DateCreated).ToList();
+            }
+            else
+            {
+                return query.OrderBy(p => p.DateCreated).ToList();
+            }
+        }
 
     }
 }
