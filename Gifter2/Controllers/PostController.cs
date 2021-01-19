@@ -89,12 +89,12 @@ namespace Gifter2.Controllers
 
         // The method below will respond to a request that looks like this (adams lecture)
         // https://localhost:5001/api/post/search?criterion=bad&recent=true
-        //[HttpGet("search")]
-        //public IActionResult Search(string criterion, bool recent)
-        //{
-        //    var posts = _postRepository.Search(criterion, recent);
-        //    return Ok(posts);
-        //}
+        [HttpGet("search")]
+        public IActionResult Search(string criterion, bool recent)
+        {
+            var posts = _postRepository.Search(criterion, recent);
+            return Ok(posts);
+        }
 
 
         // The method below will respond to a request that looks like this (chapter)

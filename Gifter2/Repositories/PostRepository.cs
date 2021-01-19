@@ -26,8 +26,8 @@ namespace Gifter2.Repositories
         {
             // this is the table we're going to look at
             return _context.Post.Include(p => p.UserProfile)
-                // we're going to limit it to three
-                .Take(3)
+                // we could to limit it to three, but we decided otherwise
+                //.Take(3)
                 // we're going to order it by date created
                 .OrderBy(p => p.DateCreated)
                 // this tells the program to fire it off and then list the items
@@ -85,21 +85,21 @@ namespace Gifter2.Repositories
             return query.ToList();
         }
 
-        //public List<Post> Search(string searchTerm, bool recent)
-        //{
-        //    var query = _context.Post
-        //        .Where(p => p.Title.Contains(searchTerm));
-        //        //.ToList();
+        public List<Post> Search(string searchTerm, bool recent)
+        {
+            var query = _context.Post
+                .Where(p => p.Title.Contains(searchTerm));
+            //.ToList();
 
-        //    if (recent == true)
-        //    {
-        //        return query.OrderByDescending(p => p.DateCreated).ToList();
-        //    }
-        //    else
-        //    {
-        //        return query.OrderBy(p => p.DateCreated).ToList();
-        //    }
-        //}
+            if (recent == true)
+            {
+                return query.OrderByDescending(p => p.DateCreated).ToList();
+            }
+            else
+            {
+                return query.OrderBy(p => p.DateCreated).ToList();
+            }
+        }
 
     }
 }
