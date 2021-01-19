@@ -75,16 +75,31 @@ namespace Gifter2.Repositories
                 .ToList();
         }
 
-        public List<Post> Search(string criterion, bool sortDescending)
+
+        public List<Post> Hottest(DateTime startDate)
         {
             var query = _context.Post
                                 .Include(p => p.UserProfile)
-                                .Where(p => p.Title.Contains(criterion));
+                                .Where(p => p.DateCreated >= startDate);
 
-            return sortDescending
-                ? query.OrderByDescending(p => p.DateCreated).ToList()
-                : query.OrderBy(p => p.DateCreated).ToList();
+            return query.ToList();
         }
+
+        //public List<Post> Search(string searchTerm, bool recent)
+        //{
+        //    var query = _context.Post
+        //        .Where(p => p.Title.Contains(searchTerm));
+        //        //.ToList();
+
+        //    if (recent == true)
+        //    {
+        //        return query.OrderByDescending(p => p.DateCreated).ToList();
+        //    }
+        //    else
+        //    {
+        //        return query.OrderBy(p => p.DateCreated).ToList();
+        //    }
+        //}
 
     }
 }
