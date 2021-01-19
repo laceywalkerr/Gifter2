@@ -14,7 +14,7 @@ const PostList = () => {
         <div className="container">
             <div className="row justify-content-center">
                 {/* <div className="cards-column"> */}
-                <PostSearch />
+                <PostSearch onSearch={results => setPosts(results)} />
                 {posts.map((post) => (
                     <div key={post.id}>
                         <img src={post.imageUrl} alt={post.title} />
@@ -26,6 +26,7 @@ const PostList = () => {
                 ))}
 
             </div>
+            {/* <button onClick={() => console.log('I hath been clicked!')}>Click here!</button> */}
         </div>
     );
 };
