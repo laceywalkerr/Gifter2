@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import PostSearch from './PostSearch';
 
 const PostList = () => {
     const [posts, setPosts] = useState([]);
@@ -12,7 +13,8 @@ const PostList = () => {
     return (
         <div className="container">
             <div className="row justify-content-center">
-                {/* <div className=""> */}
+                {/* <div className="cards-column"> */}
+                <PostSearch onSearch={results => setPosts(results)} />
                 {posts.map((post) => (
                     <div key={post.id}>
                         <img src={post.imageUrl} alt={post.title} />
@@ -22,7 +24,9 @@ const PostList = () => {
                         <p>{post.caption}</p>
                     </div>
                 ))}
+
             </div>
+            {/* <button onClick={() => console.log('I hath been clicked!')}>Click here!</button> */}
         </div>
     );
 };

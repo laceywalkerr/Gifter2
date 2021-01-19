@@ -88,8 +88,9 @@ namespace Gifter2.Repositories
         public List<Post> Search(string searchTerm, bool recent)
         {
             var query = _context.Post
-                .Where(p => p.Title.Contains(searchTerm));
-            //.ToList();
+                .Where(p => p.Title.Contains(searchTerm))
+                .Include(p => p.UserProfile);
+                //.ToList();
 
             if (recent == true)
             {
