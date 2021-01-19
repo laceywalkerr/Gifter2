@@ -5,7 +5,7 @@ const Header = () => {
     return (
         <nav className="navbar navbar-expand navbar-dark bg-info">
             <Link to="/" className="navbar-brand">
-                GiFTER
+                Gifyo
       </Link>
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
